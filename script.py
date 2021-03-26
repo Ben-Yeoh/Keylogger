@@ -11,9 +11,12 @@ def format_key(key):
     key = strip_apostrophe(key)
     if (key == "Key.space"):
         return " "
+    elif (key == "Key.enter"):
+        return "\n"
     elif (key == "Key.esc"):
         return ""
-    # If the input is a modifier key (e.g. Shift, Alt) surrond it with brackets.
+    # If the input is a modifier key (e.g. Shift, Alt)
+    # surrond it with brackets.
     elif (len(key) > 1):
         return f"[{key}]"
     return key
