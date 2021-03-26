@@ -1,5 +1,4 @@
 from pynput import keyboard
-import pynput
 
 keys = []
 
@@ -28,7 +27,7 @@ def format_special_key(key):
 
 
 def format_key(key):
-    if (type(key) != pynput.keyboard.KeyCode):
+    if (type(key) != keyboard.KeyCode):
         return format_special_key(key)
     return strip_apostrophe(key)
 
