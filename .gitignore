@@ -1,2 +1,4 @@
 .vscode
 keys.txt
+.env
+__pycache__
