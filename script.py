@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from typing import Union
 from pynput import keyboard
 from transfer import transfer
